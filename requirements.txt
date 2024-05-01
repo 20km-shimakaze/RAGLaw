@@ -1,0 +1,2 @@
+datasets==2.19.0
+langchain==0.1.16
