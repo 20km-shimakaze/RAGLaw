@@ -1,6 +1,7 @@
 # RAGLaw
 
 毕业设计
+linux开发
 
 # 设计
 - 框架 LangChain
@@ -8,7 +9,7 @@
 - 语言 python 
 - 模型 
   - embedding模型
-  - llama3 7b（暂定）
+  - llama3 8b（暂定）
 
 # 运行逻辑
 ## 使用
@@ -25,3 +26,13 @@
 - db 数据库处理
 - law_data 法律数据
 - models 模型
+
+# 数据库架构
+## law_vec
+> 储存法律信息的数据库
+- id 数据id
+- law_type 信息的类型
+  - law_book 法律法规
+  - xxx 法律判例
+- vector 向量
+- info 对应的文字
