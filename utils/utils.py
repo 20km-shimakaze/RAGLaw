@@ -1,5 +1,18 @@
 import numpy as np
 
+from pymilvus import MilvusClient
+
+client_one = None
+
+def get_client():
+    global client_one
+    if client_one is not None:
+        return client_one
+    else:
+        client_one = MilvusClient(
+            uri="http://localhost:19530"
+        )
+        return client_one
 
 def get_rand_vector(shape: tuple)->list:
     return np.random.rand(*shape)
