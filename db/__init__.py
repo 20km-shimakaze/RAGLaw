@@ -8,6 +8,8 @@ from .database import (
 from .dao import(
     insert_data,
     delete_data,
+    upsert_data,
+    search_single_vector,
 )
 
 __all__ =[
@@ -18,4 +20,6 @@ __all__ =[
     "load_colle",
     "insert_data",
     "delete_data",
+    "upsert_data",
+    "search_single_vector",
 ]

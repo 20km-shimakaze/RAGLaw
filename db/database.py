@@ -39,6 +39,11 @@ def create_coll():
         index_params=index_params
     )
 
+def drop_colle(client: MilvusClient, colle_name: str):
+    client.drop_collection(
+        collection_name=colle_name
+    )
+
 client_one = None
 
 def get_client():
@@ -80,6 +85,9 @@ def load_colle(client: MilvusClient, name: str):
 
 if __name__ == '__main__':
     client = get_client()
-    print(check_colle_state(client, "law_vec"))
+    drop_colle(client, "law_vec")
+    print(client.list_collections())
+    create_coll()
+    print(client.list_collections())
     pass
 
