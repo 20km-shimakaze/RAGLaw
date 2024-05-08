@@ -3,4 +3,5 @@
 */__pycache__
 
 models/models--chestnutlzj--ChatLaw-Text2Vec
-test.py
+test*.py
+models/llama3/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf
