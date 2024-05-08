@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # print(database.check_colle_info(client, "law_vec"))
     data = utils.get_rand_vector((768, ))
     # res = delete_data(client, "id in [449481636260111509, 449481636260111507, 449481636260111505]", "law_vec")
-    res = search_single_vector(client, [data], "law_vec", limit=100, output_fields=["info"])
+    res = search_single_vector(client, [data], "law_vec", limit=2, output_fields=["info"])[0][0]
     print(res)
 
 

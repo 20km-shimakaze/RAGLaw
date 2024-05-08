@@ -1,4 +1,5 @@
 from pymilvus import MilvusClient, DataType, db, connections
+from utils import get_client
 
 # 数据库操作
 
@@ -44,18 +45,6 @@ def drop_colle(client: MilvusClient, colle_name: str):
         collection_name=colle_name
     )
 
-client_one = None
-
-def get_client():
-    global client_one
-    if client_one is not None:
-        return client_one
-    else:
-        client_one = MilvusClient(
-            uri="http://localhost:19530"
-        )
-        return client_one
-
 
 def check_colle_info(client: MilvusClient, name: str):
     res = client.describe_collection(
@@ -85,9 +74,4 @@ def load_colle(client: MilvusClient, name: str):
 
 if __name__ == '__main__':
     client = get_client()
-    drop_colle(client, "law_vec")
-    print(client.list_collections())
-    create_coll()
-    print(client.list_collections())
-    pass
 
