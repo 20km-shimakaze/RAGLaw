@@ -63,10 +63,14 @@ cd ..
 
 ## 数据库架构
 ### law_vec
-> 储存法律信息的数据库
+> 使用miluvs储存法律信息的数据库
 - id 数据id
 - law_type 信息的类型
   - law_book 法律法规
   - xxx 法律判例
 - vector 向量
 - info 对应的文字
+
+### chat_notes
+> 使用redis储存聊天记录的数据库
+- role 角色

@@ -45,9 +45,9 @@ if __name__ == "__main__":
     import os
     sys.path.append(os.path.split(sys.path[0])[0])
     import utils
-    import database
+    import db.milvus_database as milvus_database
     client = utils.get_client()
-    database.load_colle(client, "law_vec")
+    milvus_database.load_colle(client, "law_vec")
     # print(database.check_colle_info(client, "law_vec"))
     data = utils.get_rand_vector((768, ))
     # res = delete_data(client, "id in [449481636260111509, 449481636260111507, 449481636260111505]", "law_vec")
