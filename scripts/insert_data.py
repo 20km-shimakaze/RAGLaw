@@ -48,7 +48,7 @@ logging.info("processing embedding finish")
 
 
 logging.info("insert colle strat")
-client = utils.get_client()
+client = utils.get_milvus_client()
 db.load_colle(client, "law_vec")
 for insert_data in tqdm(insert_datas, desc="process insert"):
     if len(insert_data["info"]) >= 10000:

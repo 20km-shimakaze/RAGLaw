@@ -1,5 +1,5 @@
 from .milvus_database import (
-    get_client,
+    get_milvus_client,
     check_colle_info,
     check_colle_state,
     release_colle,
@@ -13,7 +13,7 @@ from .milvus_dao import(
 )
 
 __all__ = [
-    "get_client",
+    "get_milvus_client",
     "check_colle_info",
     "check_colle_state",
     "release_colle",

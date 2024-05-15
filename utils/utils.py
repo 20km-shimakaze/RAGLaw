@@ -1,18 +1,28 @@
 import numpy as np
 
 from pymilvus import MilvusClient
+from redis import Redis
 
-client_one = None
+client_milvus_one = None
+client_redis_one = None
 
-def get_client():
-    global client_one
-    if client_one is not None:
-        return client_one
-    else:
-        client_one = MilvusClient(
+def get_milvus_client():
+    global client_milvus_one
+    if client_milvus_one is None:
+        client_milvus_one = MilvusClient(
             uri="http://localhost:19530"
         )
-        return client_one
+    return client_milvus_one
+
+def get_redis_client():
+    global client_redis_one
+    if client_redis_one is None:
+        client_redis_one = Redis(
+            host='localhost',
+            port=6379,
+            db=0
+        )
+    return client_redis_one
 
 def get_rand_vector(shape: tuple)->list:
     return np.random.rand(*shape)

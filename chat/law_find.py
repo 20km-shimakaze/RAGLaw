@@ -6,7 +6,7 @@ class LawFind():
     """用来查找最相近的句子"""
     def __init__(self, model_path: str="chestnutlzj/ChatLaw-Text2Vec", colle_name: str="law_vec"):
         super().__init__()
-        self.client = utils.get_client()
+        self.client = utils.get_milvus_client()
         self.colle_name = colle_name
         db.load_colle(self.client, self.colle_name)
         self.embadding_model = SentenceTransformer(model_path, cache_folder="./models").cuda()

@@ -1,5 +1,5 @@
 from pymilvus import MilvusClient, DataType, db, connections
-from utils import get_client
+from utils import get_milvus_client
 
 # 数据库操作
 
@@ -73,5 +73,5 @@ def load_colle(client: MilvusClient, name: str):
 # def check
 
 if __name__ == '__main__':
-    client = get_client()
+    client = get_milvus_client()
 

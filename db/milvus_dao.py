@@ -46,7 +46,7 @@ if __name__ == "__main__":
     sys.path.append(os.path.split(sys.path[0])[0])
     import utils
     import db.milvus_database as milvus_database
-    client = utils.get_client()
+    client = utils.get_milvus_client()
     milvus_database.load_colle(client, "law_vec")
     # print(database.check_colle_info(client, "law_vec"))
     data = utils.get_rand_vector((768, ))
