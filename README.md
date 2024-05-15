@@ -34,6 +34,9 @@ pip install -r requirements.txt
 cd ..
 ```
 
+## 运行
+llama.cpp
+`python -m llama_cpp.server --host 0.0.0.0 --model models/llama3/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf --n_ctx 2048 --n_gpu_layers 28`
 
 
 
