@@ -6,21 +6,21 @@ from redis import Redis
 client_milvus_one = None
 client_redis_one = None
 
-def get_milvus_client():
+def get_milvus_client(uri="http://localhost:19530"):
     global client_milvus_one
     if client_milvus_one is None:
         client_milvus_one = MilvusClient(
-            uri="http://localhost:19530"
+            uri=uri
         )
     return client_milvus_one
 
-def get_redis_client():
+def get_redis_client(host="localhost", port=6379, db=0):
     global client_redis_one
     if client_redis_one is None:
         client_redis_one = Redis(
-            host='localhost',
-            port=6379,
-            db=0
+            host=host,
+            port=port,
+            db=db
         )
     return client_redis_one
 
