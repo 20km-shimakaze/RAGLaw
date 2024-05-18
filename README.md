@@ -36,7 +36,7 @@ cd ..
 
 ## 运行
 llama.cpp
-`python -m llama_cpp.server --host 0.0.0.0 --model models/llama3/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf --n_ctx 2048 --n_gpu_layers 28`
+`python -m llama_cpp.server --host 0.0.0.0 --model ./models/llama3/Llama3-8B-Chinese-Chat-q8_0-v2_1.gguf --n_ctx 8192 --n_gpu_layers 28`
 
 
 

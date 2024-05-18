@@ -3,7 +3,8 @@
 */test[0-9]*.py
 */test.py
 */__pycache__
-
+__pycache__
 models/models--chestnutlzj--ChatLaw-Text2Vec
 test[0-9]*.py
 models/llama3/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf
+models/llama3/Llama3-8B-Chinese-Chat-q8_0-v2_1.gguf
