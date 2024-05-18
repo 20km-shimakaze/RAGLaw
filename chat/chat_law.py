@@ -16,7 +16,7 @@ class ChatLaw():
         self.history = DEFULT_PROMPT
 
     
-    def get_response(self, question, history):
+    def get_response(self, question, history, limit=3, temperature=0.7):
         """ 调用openai接口, 获取回答"""
         # 用户的问题加入到message
         self.clean_history()
@@ -24,7 +24,7 @@ class ChatLaw():
             self.history.append({"role": "user", "content": human})
             self.history.append({"role": "assistant", "content": assistant})
 
-        law_data = self.law_find.find_law(question, limit=3)
+        law_data = self.law_find.find_law(question, limit=limit)
         prompt = "可以参考的的法律条文为\n:"
         for law_str in law_data:
             prompt += law_str + '\n'
@@ -35,7 +35,7 @@ class ChatLaw():
         rsp = self.client_openai.chat.completions.create(
             model="local-model",
             messages=self.history,
-            temperature=0.7,
+            temperature=temperature,
             stream=True,
             )
         # 得到的答案加入message，多轮对话的历史信息
@@ -52,6 +52,7 @@ class ChatLaw():
         rsp = self.client_openai.chat.completions.create(
             messages=msg,
             temperature=temperature,
+            # top_p = 
             stream=True,
         )
         return rsp.get("choices")[0]["message"]["content"]
