@@ -41,7 +41,7 @@ def main():
             msg = gr.Textbox()
             with gr.Accordion("See Details"):
                 law_nums = gr.Slider(minimum=0, maximum=10, step=1, value=3, label="查询law数量")
-                temperature = gr.Slider(minimum=0., maximum=1., value=0.7, label="温度")
+                temperature = gr.Slider(minimum=0., maximum=2., value=0.7, label="温度")
             with gr.Row():
                 undo_btn = gr.Button(value="↩️ Undo")
                 clear_btn = gr.ClearButton([msg, chatbot], value="🗑️  Clear")
