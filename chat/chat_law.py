@@ -16,19 +16,22 @@ class ChatLaw():
         self.history = DEFULT_PROMPT
 
     
-    def get_response(self, question, history, limit=3, temperature=0.7):
+    def get_response(self, question, history, limit=3, temperature=0.7, search_law="True"):
         """ 调用openai接口, 获取回答"""
         # 用户的问题加入到message
         self.clean_history()
         for human, assistant in history:
             self.history.append({"role": "user", "content": human})
             self.history.append({"role": "assistant", "content": assistant})
-
-        law_data = self.law_find.find_law(question, limit=limit)
-        prompt = "可以参考的的法律条文为\n:"
-        for law_str in law_data:
-            prompt += law_str + '\n'
-        prompt += question
+        if search_law == "True":
+            law_data = self.law_find.find_law(question, limit=limit)
+            prompt = "可以参考的的法律条文为\n:"
+            for law_str in law_data:
+                prompt += law_str + '\n'
+            prompt += question
+        else:
+            prompt = question
+        logging.info(f"prompt:{prompt}")
 
         self.history.append({"role": "user", "content": prompt})
         # 问chatgpt问题的答案
