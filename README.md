@@ -1,7 +1,8 @@
 # RAGLaw
 
 linux开发
-
+使用RAG技术，实现法律模型
+![alt text](./data/image.png)
 ## 开始
 创建环境
 ```
@@ -41,12 +42,11 @@ llama.cpp
 
 
 ## 设计
-- 框架 LangChain
 - 数据库 milvus
 - 语言 python 
 - 模型 
-  - embedding模型
-  - llama3 8b（暂定）
+  - BERT模型法律微调版
+  - llama3 8b中文微调版
 
 ## 运行逻辑
 ### 使用
@@ -60,9 +60,12 @@ llama.cpp
 4. 模型输出结果
 
 ## 代码架构
-- db 数据库处理
+- db 数据库调用
 - law_data 法律数据
-- models 模型
+- models 模型存放位置
+- chat 聊天对话，查找数据
+- scrips 法律数据处理，保存至数据库
+- webui 前端ui
 
 ## 数据库架构
 ### law_vec
@@ -73,7 +76,3 @@ llama.cpp
   - xxx 法律判例
 - vector 向量
 - info 对应的文字
-
-### chat_notes
-> 使用redis储存聊天记录的数据库
-- role 角色
